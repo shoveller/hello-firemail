@@ -3,6 +3,7 @@ import { collection, getFirestore, addDoc, getDocs } from 'firebase/firestore'
 import { app } from "./app";
 
 export type CustomEmail = {
+  id?: string
   to: string
   from: string
   subject: string

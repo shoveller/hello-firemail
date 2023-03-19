@@ -1,17 +1,9 @@
+import {useQuery} from "react-query";
 import './App.css'
-import {useEffect, useLayoutEffect, useState} from "react";
 import {CustomEmail, read, write} from "./firebase/email";
 
 function App() {
-  const [records, setRecords] = useState<CustomEmail[]>([])
-
-  useLayoutEffect(() => {
-    read().then((data) => {
-      if (data) {
-        setRecords(data)
-      }
-    })
-  }, [])
+  const {data} = useQuery<unknown, typeof Error, CustomEmail[]>(['records'], () => read())
 
   return (
     <div className="App">
@@ -20,11 +12,12 @@ function App() {
         from: 'cinos81@gmail.com',
         subject: '제목',
         text: '내용'
-      })}>메일 보내기</button>
+      })}>메일 보내기
+      </button>
       <ul>
         {
-          records.map(item => {
-            return <li>{JSON.stringify(item)}</li>
+          data?.map(item => {
+            return <li key={item.id}>{JSON.stringify(item)}</li>
           })
         }
       </ul>
