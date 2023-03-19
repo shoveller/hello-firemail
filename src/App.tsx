@@ -10,8 +10,10 @@ function App() {
       <button onClick={() => write({
         to: 'cinos81@gmail.com',
         from: 'cinos81@gmail.com',
-        subject: '제목',
-        text: '내용'
+        message: {
+          subject: '제목',
+          text: '내용'
+        }
       })}>메일 보내기
       </button>
       <ul>

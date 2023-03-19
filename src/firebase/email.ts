@@ -6,8 +6,10 @@ export type CustomEmail = {
   id?: string
   to: string
   from: string
-  subject: string
-  text: string
+  message: {
+    subject: string
+    text: string
+  }
 }
 
 export const write = async (data: CustomEmail) => {
