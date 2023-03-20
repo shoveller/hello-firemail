@@ -9,10 +9,10 @@ function App() {
     <div className="App">
       <button onClick={() => write({
         to: 'cinos81@gmail.com',
-        from: 'cinos81@gmail.com',
+        from: 'test@knccapital.co.nz',
         message: {
-          subject: '제목',
-          text: '내용'
+          subject: '파이어베이스 메일 플러그인을 이용해서 메일 보내기',
+          text: '메일 내용'
         }
       })}>메일 보내기
       </button>
